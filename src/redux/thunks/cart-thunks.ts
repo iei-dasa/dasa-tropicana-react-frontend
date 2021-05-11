@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import {API_BASE_URL} from "../../utils/constants/url";
-import {Perfume} from "../../types/types";
+import {Furniture} from "../../types/types";
 import {
     calculateCartPriceSuccess,
     clearCartSuccess,
@@ -14,24 +14,24 @@ import {Dispatch} from "redux";
 export const fetchCart = (data: Array<number>) => async (dispatch: Dispatch) => {
     dispatch(loadingCart());
     const response = await axios.post(API_BASE_URL + "/users/cart", data);
-    const perfumes: Map<number, number> = new Map(JSON.parse(<string>localStorage.getItem("perfumes")));
+    const furnitures: Map<number, number> = new Map(JSON.parse(<string>localStorage.getItem("furnitures")));
     let total: number = 0;
 
-    perfumes.forEach((value: number, key: number) => {
-        const perfume: Perfume = response.data.find((perfume: { id: number; }) => perfume.id === key);
-        total += (perfume.price * value);
+    furnitures.forEach((value: number, key: number) => {
+        const furniture: Furniture = response.data.find((furniture: { id: number; }) => furniture.id === key);
+        total += (furniture.price * value);
     });
     dispatch(fetchCartSuccess(response.data));
     dispatch(calculateCartPriceSuccess(total));
 };
 
-export const calculateCartPrice = (perfumes: Array<Perfume> | any) => (dispatch: Dispatch) => {
-    const perfumesFromLocalStorage: Map<number, number> = new Map(JSON.parse(<string>localStorage.getItem("perfumes")));
+export const calculateCartPrice = (furnitures: Array<Furniture> | any) => (dispatch: Dispatch) => {
+    const furnituresFromLocalStorage: Map<number, number> = new Map(JSON.parse(<string>localStorage.getItem("furnitures")));
     let total: number = 0;
 
-    perfumesFromLocalStorage.forEach((value: number, key: number) => {
-        const perfume: Perfume = perfumes.find((perfume: { id: number; }) => perfume.id === key);
-        total += perfume.price * value;
+    furnituresFromLocalStorage.forEach((value: number, key: number) => {
+        const furniture: Furniture = furnitures.find((furniture: { id: number; }) => furniture.id === key);
+        total += furniture.price * value;
     });
     dispatch(calculateCartPriceSuccess(total));
 };
