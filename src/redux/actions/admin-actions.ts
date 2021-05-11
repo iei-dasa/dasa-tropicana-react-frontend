@@ -11,30 +11,30 @@ import {
     GetAllUsersOrdersActionType,
     GetUserInfoActionType,
     GetUserOrdersActionType,
-    PERFUME_ADDED_FAILURE,
-    PERFUME_ADDED_SUCCESS,
-    PERFUME_UPDATED_FAILURE,
-    PERFUME_UPDATED_SUCCESS,
+    FURNITURE_ADDED_FAILURE,
+    FURNITURE_ADDED_SUCCESS,
+    FURNITURE_UPDATED_FAILURE,
+    FURNITURE_UPDATED_SUCCESS,
     ResetActionType,
     UpdateFurnitureFailureActionType,
     UpdateFurnitureSuccessActionType
 } from "../action-types/admin-action-types";
 
 export const addFurnitureSuccess = (): AddFurnitureSuccessActionType => ({
-    type: PERFUME_ADDED_SUCCESS
+    type: FURNITURE_ADDED_SUCCESS
 });
 
 export const addFurnitureFailure = (error: FurnitureErrors): AddFurnitureFailureActionType => ({
-    type: PERFUME_ADDED_FAILURE,
+    type: FURNITURE_ADDED_FAILURE,
     payload: error
 });
 
 export const updateFurnitureSuccess = (): UpdateFurnitureSuccessActionType => ({
-    type: PERFUME_UPDATED_SUCCESS
+    type: FURNITURE_UPDATED_SUCCESS
 });
 
 export const updateFurnitureFailure = (error: FurnitureErrors): UpdateFurnitureFailureActionType => ({
-    type: PERFUME_UPDATED_FAILURE,
+    type: FURNITURE_UPDATED_FAILURE,
     payload: error
 });
 

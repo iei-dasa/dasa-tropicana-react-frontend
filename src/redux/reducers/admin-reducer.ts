@@ -1,8 +1,8 @@
 import {
-    PERFUME_ADDED_SUCCESS,
-    PERFUME_UPDATED_SUCCESS,
-    PERFUME_ADDED_FAILURE,
-    PERFUME_UPDATED_FAILURE,
+    FURNITURE_ADDED_SUCCESS,
+    FURNITURE_UPDATED_SUCCESS,
+    FURNITURE_ADDED_FAILURE,
+    FURNITURE_UPDATED_FAILURE,
     FETCH_USER_INFO_SUCCESS,
     FETCH_ALL_USERS_SUCCESS,
     FETCH_ALL_USERS_ORDERS_SUCCESS,
@@ -35,16 +35,16 @@ const initialState: InitialStateType = {
 const reducer = (state: InitialStateType = initialState, action: AdminActionTypes): InitialStateType => {
 
     switch (action.type) {
-        case PERFUME_ADDED_SUCCESS:
+        case FURNITURE_ADDED_SUCCESS:
             return {...state, isFurnitureAdded: true, errors: {}};
 
-        case PERFUME_ADDED_FAILURE:
+        case FURNITURE_ADDED_FAILURE:
             return {...state, isFurnitureAdded: false, errors: action.payload};
 
-        case PERFUME_UPDATED_SUCCESS:
+        case FURNITURE_UPDATED_SUCCESS:
             return {...state, isFurnitureEdited: true, errors: {}};
 
-        case PERFUME_UPDATED_FAILURE:
+        case FURNITURE_UPDATED_FAILURE:
             return {...state, isFurnitureEdited: false, errors: action.payload};
 
         case FETCH_USER_INFO_SUCCESS:

@@ -1,13 +1,13 @@
 import {Furniture, Review} from "../../types/types";
 import {
-    FETCH_PERFUMES,
-    FETCH_PERFUME_SUCCESS,
-    FETCH_PERFUMES_BY_FILTER_PARAMS_SUCCESS,
-    FETCH_PERFUMES_BY_GENDER_SUCCESS,
-    FETCH_PERFUMES_BY_PERFUMER_SUCCESS,
-    FETCH_PERFUMES_BY_QUERY_SUCCESS,
-    FETCH_PERFUME_BY_QUERY_SUCCESS,
-    FETCH_PERFUME_REVIEWS_SUCCESS,
+    FETCH_FURNITURES,
+    FETCH_FURNITURE_SUCCESS,
+    FETCH_FURNITURES_BY_FILTER_PARAMS_SUCCESS,
+    FETCH_FURNITURES_BY_GENDER_SUCCESS,
+    FETCH_FURNITURES_BY_FURNITURER_SUCCESS,
+    FETCH_FURNITURES_BY_QUERY_SUCCESS,
+    FETCH_FURNITURE_BY_QUERY_SUCCESS,
+    FETCH_FURNITURE_REVIEWS_SUCCESS,
     FurnitureActionTypes,
 } from "../action-types/furniture-action-types";
 
@@ -26,28 +26,28 @@ const initialState: InitialStateType = {
 const reducer = (state: InitialStateType = initialState, action: FurnitureActionTypes): InitialStateType => {
 
     switch (action.type) {
-        case FETCH_PERFUMES:
+        case FETCH_FURNITURES:
             return {...state, furnitures: action.payload};
 
-        case FETCH_PERFUMES_BY_QUERY_SUCCESS:
+        case FETCH_FURNITURES_BY_QUERY_SUCCESS:
             return {...state, furnitures: action.payload};
 
-        case FETCH_PERFUME_SUCCESS:
+        case FETCH_FURNITURE_SUCCESS:
             return {...state, furniture: action.payload, reviews: action.payload.reviews};
 
-        case FETCH_PERFUME_REVIEWS_SUCCESS:
+        case FETCH_FURNITURE_REVIEWS_SUCCESS:
             return {...state, furniture: action.payload, reviews: action.payload.reviews};
 
-        case FETCH_PERFUME_BY_QUERY_SUCCESS:
+        case FETCH_FURNITURE_BY_QUERY_SUCCESS:
             return {...state, furniture: action.payload, reviews: action.payload.reviews};
 
-        case FETCH_PERFUMES_BY_GENDER_SUCCESS:
+        case FETCH_FURNITURES_BY_GENDER_SUCCESS:
             return {...state, furnitures: action.payload};
 
-        case FETCH_PERFUMES_BY_PERFUMER_SUCCESS:
+        case FETCH_FURNITURES_BY_FURNITURER_SUCCESS:
             return {...state, furnitures: action.payload};
 
-        case FETCH_PERFUMES_BY_FILTER_PARAMS_SUCCESS:
+        case FETCH_FURNITURES_BY_FILTER_PARAMS_SUCCESS:
             return {...state, furnitures: action.payload};
 
         default:
