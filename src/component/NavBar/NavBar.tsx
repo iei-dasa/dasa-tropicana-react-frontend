@@ -7,11 +7,11 @@ import {faSignInAlt, faSignOutAlt, faUser, faUserPlus} from "@fortawesome/free-s
 import {logout} from "../../redux/thunks/auth-thunks";
 import "./NavBar.css";
 import {AppStateType} from "../../redux/reducers/root-reducer";
-import {Furniture} from "../../types/types";
+import {Perfume} from "../../types/types";
 
 const NavBar: FC = () => {
     const dispatch = useDispatch();
-    const furnitures: Array<Furniture> = useSelector((state: AppStateType) => state.cart.furnitures);
+    const perfumes: Array<Perfume> = useSelector((state: AppStateType) => state.cart.perfumes);
     const isLoggedIn: boolean = useSelector((state: AppStateType) => state.user.isLoggedIn);
 
     const handleLogout = () => {
@@ -64,7 +64,7 @@ const NavBar: FC = () => {
                             </li>
                             <li className="nav-item">
                                 <Link to={{pathname: "/menu", state: {id: "all"}}}>
-                                    <span className="nav-link pl-5 pr-5">FURNITURES</span></Link>
+                                    <span className="nav-link pl-5 pr-5">PERFUMES</span></Link>
                             </li>
                             <li className="nav-item">
                                 <Link to={"/contacts"}><span className="nav-link pl-5 pr-5">CONTACTS</span></Link>
@@ -76,7 +76,7 @@ const NavBar: FC = () => {
                                     <i className="fas fa-shopping-cart fa-lg pl-5" style={{color: "white"}}></i>
                                     <h5 className="d-inline"
                                         style={{position: "relative", right: "15px", bottom: "8px"}}>
-                                        <span className="badge badge-success">{furnitures.length}</span>
+                                        <span className="badge badge-success">{perfumes.length}</span>
                                     </h5>
                                 </Link>
                             </li>

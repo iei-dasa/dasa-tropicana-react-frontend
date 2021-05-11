@@ -19,7 +19,7 @@ export const addOrder = (order: any, history: any) => async (dispatch: Dispatch)
         dispatch(showLoader());
         const response = await axios.post(API_BASE_URL + "/users/order", order);
         history.push("/order/finalize");
-        localStorage.removeItem("furnitures");
+        localStorage.removeItem("perfumes");
         dispatch(orderAddedSuccess(response.data));
     } catch (error) {
         dispatch(orderAddedFailure(error.response.data));

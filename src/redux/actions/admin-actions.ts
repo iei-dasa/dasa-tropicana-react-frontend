@@ -1,7 +1,7 @@
-import {Order, FurnitureErrors, User} from "../../types/types";
+import {Order, PerfumeErrors, User} from "../../types/types";
 import {
-    AddFurnitureFailureActionType,
-    AddFurnitureSuccessActionType,
+    AddPerfumeFailureActionType,
+    AddPerfumeSuccessActionType,
     FETCH_ALL_USERS_ORDERS_SUCCESS,
     FETCH_ALL_USERS_SUCCESS,
     FETCH_USER_INFO_SUCCESS,
@@ -11,30 +11,30 @@ import {
     GetAllUsersOrdersActionType,
     GetUserInfoActionType,
     GetUserOrdersActionType,
-    FURNITURE_ADDED_FAILURE,
-    FURNITURE_ADDED_SUCCESS,
-    FURNITURE_UPDATED_FAILURE,
-    FURNITURE_UPDATED_SUCCESS,
+    PERFUME_ADDED_FAILURE,
+    PERFUME_ADDED_SUCCESS,
+    PERFUME_UPDATED_FAILURE,
+    PERFUME_UPDATED_SUCCESS,
     ResetActionType,
-    UpdateFurnitureFailureActionType,
-    UpdateFurnitureSuccessActionType
+    UpdatePerfumeFailureActionType,
+    UpdatePerfumeSuccessActionType
 } from "../action-types/admin-action-types";
 
-export const addFurnitureSuccess = (): AddFurnitureSuccessActionType => ({
-    type: FURNITURE_ADDED_SUCCESS
+export const addPerfumeSuccess = (): AddPerfumeSuccessActionType => ({
+    type: PERFUME_ADDED_SUCCESS
 });
 
-export const addFurnitureFailure = (error: FurnitureErrors): AddFurnitureFailureActionType => ({
-    type: FURNITURE_ADDED_FAILURE,
+export const addPerfumeFailure = (error: PerfumeErrors): AddPerfumeFailureActionType => ({
+    type: PERFUME_ADDED_FAILURE,
     payload: error
 });
 
-export const updateFurnitureSuccess = (): UpdateFurnitureSuccessActionType => ({
-    type: FURNITURE_UPDATED_SUCCESS
+export const updatePerfumeSuccess = (): UpdatePerfumeSuccessActionType => ({
+    type: PERFUME_UPDATED_SUCCESS
 });
 
-export const updateFurnitureFailure = (error: FurnitureErrors): UpdateFurnitureFailureActionType => ({
-    type: FURNITURE_UPDATED_FAILURE,
+export const updatePerfumeFailure = (error: PerfumeErrors): UpdatePerfumeFailureActionType => ({
+    type: PERFUME_UPDATED_FAILURE,
     payload: error
 });
 

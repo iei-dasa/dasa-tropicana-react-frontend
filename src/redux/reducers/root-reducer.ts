@@ -1,6 +1,6 @@
 import {combineReducers} from "redux";
 
-import furnitureReducer from "./furniture-reducer";
+import perfumeReducer from "./perfume-reducer";
 import authReducer from "./auth-reducer";
 import cartReducer from "./cart-reducer";
 import adminReducer from "./admin-reducer";
@@ -8,7 +8,7 @@ import orderReducer from "./order-reducer";
 import userReducer from "./user-reducer";
 
 const rootReducer = combineReducers({
-    furniture: furnitureReducer,
+    perfume: perfumeReducer,
     auth: authReducer,
     cart: cartReducer,
     admin: adminReducer,

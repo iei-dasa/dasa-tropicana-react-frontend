@@ -1,4 +1,4 @@
-import {Furniture} from "../../types/types";
+import {Perfume} from "../../types/types";
 import {
     CALCULATE_CART_PRICE_SUCCESS,
     CLEAR_CART_SUCCESS,
@@ -16,9 +16,9 @@ export const loadingCart = (): LoadingCartActionType => ({
     type: LOADING_CART
 });
 
-export const fetchCartSuccess = (furnitures: Array<Furniture>): FetchCartSuccessActionType => ({
+export const fetchCartSuccess = (perfumes: Array<Perfume>): FetchCartSuccessActionType => ({
     type: FETCH_CART_SUCCESS,
-    payload: furnitures
+    payload: perfumes
 });
 
 export const calculateCartPriceSuccess = (total: number): CalculateCartPriceSuccessActionType => ({

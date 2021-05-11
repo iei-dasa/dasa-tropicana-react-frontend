@@ -1,12 +1,12 @@
-export type Furniture = {
+export type Perfume = {
     id: number
-    furnitureTitle: string
-    furniturer: string
+    perfumeTitle: string
+    perfumer: string
     year: number
     country: string
     type: string
     volume: string
-    furnitureGender: string
+    perfumeGender: string
     fragranceTopNotes: string
     fragranceMiddleNotes: string
     fragranceBaseNotes: string
@@ -17,14 +17,14 @@ export type Furniture = {
     reviews: Array<Review>
 };
 
-export type FurnitureErrors = {
-    furnitureTitleError: string
-    furniturerError: string
+export type PerfumeErrors = {
+    perfumeTitleError: string
+    perfumerError: string
     yearError: string
     countryError: string
     typeError: string
     volumeError: string
-    furnitureGenderError: string
+    perfumeGenderError: string
     fragranceTopNotesError: string
     fragranceMiddleNotesError: string
     fragranceBaseNotesError: string
@@ -39,7 +39,7 @@ export type Review = {
 };
 
 export type ReviewData = {
-    furnitureId: number | string
+    perfumeId: number | string
     author: string
     message: string
 };
@@ -67,7 +67,7 @@ export type OrderItem = {
     id: number
     amount: number
     quantity: number
-    furniture: Furniture
+    perfume: Perfume
 };
 
 export type OrderError = {
@@ -141,12 +141,12 @@ export type AuthErrors = {
 };
 
 export type FilterParamsType = {
-    furniturers: Array<string>
+    perfumers: Array<string>
     genders: Array<string>
     prices: Array<number>
 };
 
-export type FurniturePrice = {
+export type PerfumePrice = {
     id: number
     name: string
     array: Array<number>

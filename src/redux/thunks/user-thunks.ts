@@ -2,7 +2,7 @@ import axios from 'axios';
 import {Dispatch} from "redux";
 
 import {API_BASE_URL} from "../../utils/constants/url";
-import {fetchFurnitureReviewsSuccess} from '../actions/furniture-actions';
+import {fetchPerfumeReviewsSuccess} from '../actions/perfume-actions';
 import {
     fetchUserSuccess,
     resetInputForm,
@@ -63,10 +63,10 @@ export const updateUserPassword = (data: UserResetPasswordData) => async (dispat
     }
 };
 
-export const addReviewToFurniture = (review: ReviewData) => async (dispatch: Dispatch) => {
+export const addReviewToPerfume = (review: ReviewData) => async (dispatch: Dispatch) => {
     try {
         const response = await axios.post(API_BASE_URL + "/users/review", review);
-        dispatch(fetchFurnitureReviewsSuccess(response.data));
+        dispatch(fetchPerfumeReviewsSuccess(response.data));
     } catch (error) {
         dispatch(userAddedReviewFailure(error.response.data));
     }

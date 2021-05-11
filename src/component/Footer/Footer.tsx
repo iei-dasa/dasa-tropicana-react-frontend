@@ -8,7 +8,7 @@ const Footer: FC = () => {
             <div className="container">
                 <div className="d-flex justify-content-between">
                     <div className="footer-left">
-                        <h3>Furniture</h3>
+                        <h3>Perfume</h3>
                         <p>(066) 696-66-23</p>
                         <br/>
                         <p>from 08:00 to 20:00 without breaks and weekends</p>

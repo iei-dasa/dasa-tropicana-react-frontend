@@ -2,20 +2,20 @@ import axios from 'axios';
 
 import {API_BASE_URL} from "../../utils/constants/url";
 import {
-    addFurnitureFailure,
-    addFurnitureSuccess,
+    addPerfumeFailure,
+    addPerfumeSuccess,
     getAllUsers,
     getAllUsersOrders,
     getUserInfo,
     getUserOrders,
     reset,
-    updateFurnitureFailure,
-    updateFurnitureSuccess
+    updatePerfumeFailure,
+    updatePerfumeSuccess
 } from "../actions/admin-actions";
 import {Dispatch} from "redux";
-import {fetchFurnitureSuccess} from "../actions/furniture-actions";
+import {fetchPerfumeSuccess} from "../actions/perfume-actions";
 
-export const addFurniture = (data: FormData) => async (dispatch: Dispatch) => {
+export const addPerfume = (data: FormData) => async (dispatch: Dispatch) => {
     try {
         await axios({
             method: "POST",
@@ -26,13 +26,13 @@ export const addFurniture = (data: FormData) => async (dispatch: Dispatch) => {
                 "Authorization": localStorage.getItem("token")
             }
         });
-        dispatch(addFurnitureSuccess());
+        dispatch(addPerfumeSuccess());
     } catch (error) {
-        dispatch(addFurnitureFailure(error.response.data));
+        dispatch(addPerfumeFailure(error.response.data));
     }
 };
 
-export const updateFurniture = (data: FormData) => async (dispatch: Dispatch) => {
+export const updatePerfume = (data: FormData) => async (dispatch: Dispatch) => {
     try {
         const response = await axios({
             method: "PUT",
@@ -43,10 +43,10 @@ export const updateFurniture = (data: FormData) => async (dispatch: Dispatch) =>
                 "Authorization": localStorage.getItem("token")
             }
         });
-        dispatch(updateFurnitureSuccess());
-        dispatch(fetchFurnitureSuccess(response.data));
+        dispatch(updatePerfumeSuccess());
+        dispatch(fetchPerfumeSuccess(response.data));
     } catch (error) {
-        dispatch(updateFurnitureFailure(error.response.data));
+        dispatch(updatePerfumeFailure(error.response.data));
     }
 };
 

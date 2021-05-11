@@ -1,15 +1,15 @@
 import {
-    FURNITURE_ADDED_SUCCESS,
-    FURNITURE_UPDATED_SUCCESS,
-    FURNITURE_ADDED_FAILURE,
-    FURNITURE_UPDATED_FAILURE,
+    PERFUME_ADDED_SUCCESS,
+    PERFUME_UPDATED_SUCCESS,
+    PERFUME_ADDED_FAILURE,
+    PERFUME_UPDATED_FAILURE,
     FETCH_USER_INFO_SUCCESS,
     FETCH_ALL_USERS_SUCCESS,
     FETCH_ALL_USERS_ORDERS_SUCCESS,
     FETCH_USER_ORDERS_SUCCESS,
     FORM_RESET
 } from "../action-types/admin-action-types";
-import {Order, FurnitureErrors, User} from "../../types/types";
+import {Order, PerfumeErrors, User} from "../../types/types";
 import {AdminActionTypes} from "../action-types/admin-action-types";
 
 type InitialStateType = {
@@ -17,9 +17,9 @@ type InitialStateType = {
     userOrders: Array<Order>
     users: Array<User>
     user: Partial<User>
-    errors: Partial<FurnitureErrors>
-    isFurnitureAdded: boolean
-    isFurnitureEdited: boolean
+    errors: Partial<PerfumeErrors>
+    isPerfumeAdded: boolean
+    isPerfumeEdited: boolean
 };
 
 const initialState: InitialStateType = {
@@ -28,24 +28,24 @@ const initialState: InitialStateType = {
     users: [],
     user: {},
     errors: {},
-    isFurnitureAdded: false,
-    isFurnitureEdited: false
+    isPerfumeAdded: false,
+    isPerfumeEdited: false
 };
 
 const reducer = (state: InitialStateType = initialState, action: AdminActionTypes): InitialStateType => {
 
     switch (action.type) {
-        case FURNITURE_ADDED_SUCCESS:
-            return {...state, isFurnitureAdded: true, errors: {}};
+        case PERFUME_ADDED_SUCCESS:
+            return {...state, isPerfumeAdded: true, errors: {}};
 
-        case FURNITURE_ADDED_FAILURE:
-            return {...state, isFurnitureAdded: false, errors: action.payload};
+        case PERFUME_ADDED_FAILURE:
+            return {...state, isPerfumeAdded: false, errors: action.payload};
 
-        case FURNITURE_UPDATED_SUCCESS:
-            return {...state, isFurnitureEdited: true, errors: {}};
+        case PERFUME_UPDATED_SUCCESS:
+            return {...state, isPerfumeEdited: true, errors: {}};
 
-        case FURNITURE_UPDATED_FAILURE:
-            return {...state, isFurnitureEdited: false, errors: action.payload};
+        case PERFUME_UPDATED_FAILURE:
+            return {...state, isPerfumeEdited: false, errors: action.payload};
 
         case FETCH_USER_INFO_SUCCESS:
             return {...state, user: action.payload};
@@ -60,7 +60,7 @@ const reducer = (state: InitialStateType = initialState, action: AdminActionType
             return {...state, userOrders: action.payload};
 
         case FORM_RESET:
-            return {...state, isFurnitureAdded: false, isFurnitureEdited: false, errors: {}};
+            return {...state, isPerfumeAdded: false, isPerfumeEdited: false, errors: {}};
 
         default:
             return state;

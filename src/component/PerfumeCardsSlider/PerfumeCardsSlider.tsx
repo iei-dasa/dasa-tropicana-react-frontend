@@ -4,39 +4,39 @@ import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 
 import {IMG_URL} from "../../utils/constants/url";
-import {fetchFurnitures, fetchFurnituresByQuery} from "../../redux/thunks/furniture-thunks"
-import "./FurnitureCardsSlider.css";
+import {fetchPerfumes, fetchPerfumesByQuery} from "../../redux/thunks/perfume-thunks"
+import "./PerfumeCardsSlider.css";
 import {AppStateType} from "../../redux/reducers/root-reducer";
-import {Furniture} from "../../types/types";
+import {Perfume} from "../../types/types";
 
-const FurnitureCardsSlider: FC = () => {
+const PerfumeCardsSlider: FC = () => {
     const dispatch = useDispatch();
-    const furnitures: Array<Furniture> = useSelector((state: AppStateType) => state.furniture.furnitures);
+    const perfumes: Array<Perfume> = useSelector((state: AppStateType) => state.perfume.perfumes);
 
     useEffect(() => {
         // GraphQL example
-        dispatch(fetchFurnituresByQuery());
-        // dispatch(fetchFurnitures());
+        dispatch(fetchPerfumesByQuery());
+        // dispatch(fetchPerfumes());
     }, []);
 
-    const addCarouselItems = (array: Array<Furniture>, counter: number) => {
-        const furnituresId: Array<number> = [26, 43, 46, 106, 34, 76, 82, 85, 27, 39, 79, 86];
+    const addCarouselItems = (array: Array<Perfume>, counter: number) => {
+        const perfumesId: Array<number> = [26, 43, 46, 106, 34, 76, 82, 85, 27, 39, 79, 86];
 
         return (
             <Carousel.Item>
                 <div className="card-deck">
-                    {array.map((furniture: Furniture) => {
+                    {array.map((perfume: Perfume) => {
                         for (let i = counter; i < counter + 4; i++) {
-                            if (furniture.id === furnituresId[i]) {
+                            if (perfume.id === perfumesId[i]) {
                                 return (
-                                    <div className="card" key={furniture.id}>
+                                    <div className="card" key={perfume.id}>
                                         <img className="d-block mx-auto w-50"
-                                             src={IMG_URL + `${furniture.filename}`}/>
+                                             src={IMG_URL + `${perfume.filename}`}/>
                                         <div className="card-body text-center">
-                                            <h5>{furniture.furnitureTitle}</h5>
-                                            <h6>{furniture.furniturer}</h6>
-                                            <h6>$<span>{furniture.price}</span>.00</h6>
-                                            <Link to={`/product/${furniture.id}`}>
+                                            <h5>{perfume.perfumeTitle}</h5>
+                                            <h6>{perfume.perfumer}</h6>
+                                            <h6>$<span>{perfume.price}</span>.00</h6>
+                                            <Link to={`/product/${perfume.id}`}>
                                             <span className="btn btn-dark">
                                                 SHOW MORE
                                             </span>
@@ -62,9 +62,9 @@ const FurnitureCardsSlider: FC = () => {
             <div className="container mt-5" id="indicators">
                 <form method="get" action="/">
                     <Carousel {...settings}>
-                        {addCarouselItems(furnitures, 0)}
-                        {addCarouselItems(furnitures, 4)}
-                        {addCarouselItems(furnitures, 8)}
+                        {addCarouselItems(perfumes, 0)}
+                        {addCarouselItems(perfumes, 4)}
+                        {addCarouselItems(perfumes, 8)}
                     </Carousel>
                 </form>
             </div>
@@ -72,4 +72,4 @@ const FurnitureCardsSlider: FC = () => {
     );
 };
 
-export default FurnitureCardsSlider;
+export default PerfumeCardsSlider;

@@ -1,24 +1,24 @@
-export const getAllFurnituresByQuery = `
+export const getAllPerfumesByQuery = `
     {
-        furnitures {
+        perfumes {
             id
-            furnitureTitle
-            furniturer
+            perfumeTitle
+            perfumer
             price
             filename
         }
     }
 `;
 
-export const getFurnitureByQuery = (id: string) => `
+export const getPerfumeByQuery = (id: string) => `
     {
-        furniture(id: ${id}) {
+        perfume(id: ${id}) {
             id
-            furnitureTitle
-            furniturer
+            perfumeTitle
+            perfumer
             year
             country
-            furnitureGender
+            perfumeGender
             fragranceTopNotes
             fragranceMiddleNotes
             fragranceBaseNotes
