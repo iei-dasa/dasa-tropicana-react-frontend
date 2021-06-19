@@ -5,7 +5,7 @@ import {faCartPlus, faPaperPlane} from "@fortawesome/free-solid-svg-icons";
 import SockJS from "sockjs-client";
 import {CompatClient, Stomp} from '@stomp/stompjs';
 
-import {IMG_URL} from "../../utils/constants/url";
+import {IMG_URL, SOCKET_URL} from "../../utils/constants/url";
 import {fetchPerfumeByQuery, fetchPerfumeReviewsWS} from "../../redux/thunks/perfume-thunks";
 import {addReviewToPerfume, resetForm} from "../../redux/thunks/user-thunks";
 import {AppStateType} from "../../redux/reducers/root-reducer";
@@ -31,7 +31,7 @@ const Product: FC<RouteComponentProps<{ id: string }>> = ({match}) => {
         // dispatch(fetchPerfume(match.params.id));
         dispatch(resetForm());
         window.scrollTo(0, 0);
-        const socket = new SockJS("http://localhost:8080/websocket");
+        const socket = new SockJS(SOCKET_URL);
         stompClient = Stomp.over(socket);
         stompClient.connect({}, () => {
             stompClient?.subscribe("/topic/reviews/" + match.params.id, (response: any) => {
