@@ -51,9 +51,6 @@ const NavBar: FC = () => {
 
     return (
         <div>
-            <div id="header" className="container-fluid header-top d-none d-md-block pb-5 pt-5">
-                <img src="https://i.ibb.co/fqYvrL8/LOGO4.jpg" className="rounded mx-auto d-block"/>
-            </div>
             <div className="container-fluid bg-black">
                 <nav id="navbar-main" className={`container navbar navbar-expand-lg bg-black text-white `}
                      style={{fontSize: "18px"}}>
