@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useState, useEffect } from 'react';
 import {Route, Switch} from "react-router-dom";
 
 import Menu from "../Menu/Menu";
@@ -17,31 +17,37 @@ import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
 import OAuth2RedirectHandler from "../../utils/oauth2/OAuth2RedirectHandler";
 
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe("pk_test_51Ip8JYJf86o0MbMSDuNwseGieZLdWfOZ6dGgRqr5dxpoxlA4zDs3LLWM8LEVhB5IYTvIBmbavT9HFl1rstkKasc700wfow9quO");
+
 const App: FC = () => {
     return (
-        <>
-            <NavBar/>
-            <Switch>
-                <Route exact path="/" component={HomePage}/>
-                <Route exact path="/login" component={Login}/>
-                <Route exact path="/registration" component={Registration}/>
-                <Route exact path="/forgot" component={ForgotPassword}/>
-                <Route exact path="/reset/:code" component={ResetPassword}/>
-                <Route exact path="/activate/:code" component={Login}/>
-                <Route exact path="/menu" component={Menu}/>
-                <Route exact path="/product/:id" component={Product}/>
-                <Route exact path="/contacts" component={Contacts}/>
-                <Route exact path="/cart" component={Cart}/>
-                <Route exact path="/order" component={Order}/>
-                <Route exact path="/order/finalize" component={OrderFinalize}/>
-                <Route path="/oauth2/redirect" component={OAuth2RedirectHandler}/>
-                <Route path="/account" render={() => localStorage.getItem("token") ?
-                    (<Route component={Account}/>) : (<Route component={HomePage}/>)}/>
-                <Route path="*" component={HomePage}/>
-            </Switch>
-            <Footer/>
-        </>
+    <>
+    <NavBar/>
+    <Switch>
+        <Route exact path="/" component={HomePage}/>
+        <Route exact path="/login" component={Login}/>
+        <Route exact path="/registration" component={Registration}/>
+        <Route exact path="/forgot" component={ForgotPassword}/>
+        <Route exact path="/reset/:code" component={ResetPassword}/>
+        <Route exact path="/activate/:code" component={Login}/>
+        <Route exact path="/menu" component={Menu}/>
+        <Route exact path="/product/:id" component={Product}/>
+        <Route exact path="/contacts" component={Contacts}/>
+        <Route exact path="/cart" component={Cart}/>
+        <Route exact path="/order" component={Order}/>
+        <Route exact path="/order/finalize" component={OrderFinalize}/>
+        <Route path="/oauth2/redirect" component={OAuth2RedirectHandler}/>
+        <Route path="/account" render={() => localStorage.getItem("token") ?
+            (<Route component={Account}/>) : (<Route component={HomePage}/>)}/>
+        <Route path="*" component={HomePage}/>
+    </Switch>
+    <Footer/>
+</>
     );
 };
+
+
 
 export default App;
